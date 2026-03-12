@@ -1,0 +1,285 @@
+/* Reset some basic styles */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+  margin: 20px auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+h1, h2 {
+  color: #222;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Search bar and 'New User' button styling */
+.header span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 20px 0;
+}
+
+/* User listing table styles */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+thead tr {
+  background: #007BFF;
+  color: white;
+  text-align: left;
+  font-weight: 600;
+}
+thead th {
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 2px solid #0056b3;
+}
+tbody tr {
+  background: white;
+  transition: background-color 0.3s ease;
+  cursor: default;
+}
+tbody tr:hover {
+  background: #e9f0ff;
+}
+tbody td {
+  padding: 12px 20px;
+  vertical-align: middle;
+  border-bottom: 1px solid #eee;
+}
+
+/* Button styles */
+button {
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-bottom: 2px solid #0056b3;
+  padding: 7px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.25s ease;
+}
+button i {
+  font-size: 48px;
+}
+button:hover {
+  background: #0056b3;
+}
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0,123,255,0.5);
+}
+
+/* Form styling */
+form {
+  background: white;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+input {
+  width: 100%;
+  max-width: 300px;
+  padding: 10px 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 7px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+form input {
+  margin: 10px 0 20px 0;
+}
+
+/* Responsive styles for screens smaller than 1000px */
+@media (max-width: 1000px) {
+  body {
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  /* Make the table rows block elements for mobile */
+  table, thead, tbody, th, td, tr {
+    display: block;
+    width: 100%;
+  }
+
+  thead tr {
+    display: none; /* Hide table headers */
+  }
+
+  tbody tr {
+    background: #fff;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 15px;  
+  }
+
+  /* Make each cell rows with labels */
+  tbody td {
+    position: relative;
+    padding: 15px;
+    padding-left: 160px;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+  }
+  tbody td:last-child { padding-left: 15px; } /* Remove padding from 'Actions' row */
+  tbody td::before {
+    content: attr(data-label); /* Use the data-label attribute as the label */
+    position: absolute;
+    left: 15px;
+    width: 150px;
+    font-weight: 600;
+    color: #555;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Make buttons full width and spaced */
+  td button {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+    box-sizing: border-box;
+  }  
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hides modal by default, changed in JavaScript */
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.5);
+}
+.modal-content {
+  background: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+#createModal .buttons {
+  text-align: right;
+}
+#deleteModal .buttons {
+  margin-top: 20px;
+  text-align: right;
+}
+.delete-btn {
+  background: #dc3545;
+  border-color: #b52a37;
+}
+.delete-btn:hover {
+  background: #b52a37;
+}
+
+/* Toast container and styles */
+#toastContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2000;
+}
+.toast {
+  margin-top: 10px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s forwards;
+  opacity: 1;
+  pointer-events: none;
+  max-width: 300px;
+  font-size: 0.95rem;
+}
+.toast.success { background: #28a745; }
+.toast.error   { background: #dc3545; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateX(100%); }
+}
+
+/* Dark mode styles */
+#darkModeToggle {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+body.dark-mode {
+  background: #121212;
+  color: #e0e0e0;
+}
+body.dark-mode table {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+body.dark-mode h1, body.dark-mode h2 {
+  color: #e0e0e0;
+}
+body.dark-mode tbody tr {
+  background: #222;
+}
+body.dark-mode tbody tr:hover {
+  background: #1c1c1c;
+}
+body.dark-mode th {
+  background: #00744d;
+  border-color: #005438
+}
+body.dark-mode td {
+  border-color: #333;
+}
+body.dark-mode .modal-content {
+  background: #2c2c2c;
+  color: #e0e0e0;
+}
+body.dark-mode .modal form {
+  background: #242424
+}
+body.dark-mode input { 
+  background: #333;
+  border-color: #555;
+  color: #e0e0e0
+}
+body.dark-mode button {
+  background: #00744d;
+  color: #e0e0e0;
+  border-color: #005438;
+}
+body.dark-mode button:hover { background: #005438; }
+body.dark-mode .delete-btn {
+  background: #dc3545;
+  border-color: #b52a37
+}
+body.dark-mode .delete-btn:hover {
+  background: #b52a37;
+}
