@@ -36,33 +36,35 @@ A full-stack CRUD application for managing users. Built with **ASP.NET Core Web 
 
 ### Backend Setup
 
-1.	Open 'FSD_ViktorMate_SFQ6PO.sln' in Visual Studio
+1.	Open 'FSD_ViktorMate_SFQ6PO.sln' in Visual Studio  
 	or navigate to project root in PowerShell
 	
 2.	Install required NuGet packages in Package Manager Console or PowerShell:
+```
 		dotnet add package Microsoft.EntityFrameworkCore
 		dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 		dotnet add package Microsoft.EntityFrameworkCore.Tools
 		dotnet add package Swashbuckle.AspNetCore
-
-3.	Run the project:
-		Ctrl + F5 (Visual Studio)
+```
+4.	Run the project:  
+		Ctrl + F5 (Visual Studio)  
 		dotnet run (PowerShell)
 	
-API should be available at: https://localhost:7011/api/users
+API should be available at: https://localhost:7011/api/users  
 Swagger: https://localhost:7011/swagger
 
 ### Frontend Setup
 Open wwwroot/index.html in your browser using Live Server or any static server (e. g. VS Code Live Server).
 
 Make sure CORS is configured correctly in Program.cs, the port number should match your live server:
+```
 	app.UseCors(x => x
     .AllowCredentials()
     .AllowAnyMethod()
     .AllowAnyHeader()
     .WithOrigins("http://localhost:5500",
                  "http://127.0.0.1:5500"));
-	
+```	
 # Notes
 IDs are auto-incremented.
 
