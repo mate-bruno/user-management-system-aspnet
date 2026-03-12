@@ -2,6 +2,24 @@
 
 A full-stack CRUD application for managing users. Built with **ASP.NET Core Web API** (backend) and **HTML/CSS/JavaScript** (frontend).
 
+## Screenshots
+
+### User List
+
+![User List](screenshots/main-page.png)
+
+### Add User Form
+
+![Add User](screenshots/add-user-form.png)
+
+### Edit User (Dark Mode)
+
+![Edit User](screenshots/edit-user-dark-mode.png)
+
+### Delete User (Dark Mode)
+
+![Delete User](screenshots/delete-user-dark-mode.png)
+
 ## Features
 
 - List all users in a dynamic table
